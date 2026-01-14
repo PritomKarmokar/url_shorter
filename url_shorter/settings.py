@@ -215,3 +215,6 @@ LOGGING = {
     },
 }
 # LOG config end
+
+# HASHED TOKEN SETTINGS
+TOKEN_HASH_KEY = env.str('TOKEN_HASH_KEY')

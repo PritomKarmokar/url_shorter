@@ -11,14 +11,16 @@ logger = get_logger(__name__)
 class UrlShortenerManager(models.Manager):
     def create_short_url(
         self,
-        url : str
+        url : str,
+        hashed_token: str,
     ) -> Optional["UrlShortener"]:
         try:
             new_object = self.create(
                 url=url,
+                hashed_token=hashed_token,
                 created_at=timezone.now()
             )
-            logger.info(f"New short url db object creation successful")
+            logger.info(f"New short url DB object creation successful")
             return new_object
         except Exception as e:
             logger.error(f"Error creating new short url db object: {repr(e)}")
@@ -27,6 +29,7 @@ class UrlShortenerManager(models.Manager):
 class UrlShortener(models.Model):
     id = models.CharField(max_length=26, primary_key=True, editable=False)
     url = models.CharField(max_length=2000)
+    hashed_token = models.CharField(max_length=1024) # note: why the size is fixed 1024
     created_at = models.DateTimeField(null=True, blank=True)
 
     objects = UrlShortenerManager()

@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from applibs.logger import get_logger
 from shortener.models import UrlShortener
 from applibs.status import VALID_DATA_NOT_FOUND
+from applibs.helper import generate_unique_token_for_url, generate_hashed_token
 from shortener.serializers import URLShortenerSubmitSerializer
 
 logger = get_logger(__name__)
@@ -23,6 +24,9 @@ class URLShortenerSubmitAPIView(APIView):
         validated_data = serializer.validated_data
         url = validated_data.get("url")
 
+        unique_token = generate_unique_token_for_url()
+        hashed_token = generate_hashed_token(unique_token)
+        
         url_object = UrlShortener.objects.create_short_url(url)
         if not url_object:
             logger.error("Error Creating new short url object")
