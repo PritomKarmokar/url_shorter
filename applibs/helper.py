@@ -15,3 +15,13 @@ def generate_hashed_token(data: str) -> str:
     encoded_hash_key = hash_key.encode('utf-8')
 
     return hmac.new(encoded_hash_key, encoded_data, hashlib.sha256).hexdigest()
+
+def format_output_success(response: dict, data: dict) -> dict:
+    if data:
+        response["data"] = data
+    return response
+
+def format_output_error(response: dict, error: str) -> dict:
+    if error:
+        response["error"] = error
+    return response
