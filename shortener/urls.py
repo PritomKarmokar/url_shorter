@@ -9,7 +9,7 @@ urlpatterns = [
         name='generate-short-url'
     ),
     path(
-        '/<str:token>/',
+        '<str:token>/',
         RedirectUrlAPIView.as_view(),
         name='redirect-url'
     ),
