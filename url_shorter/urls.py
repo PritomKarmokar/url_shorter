@@ -1,12 +1,11 @@
-from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 
-prefix_url = settings.PROJECT_NAME
+prefix_url = "url-shorter"
 
 urlpatterns = [
     path(f'{prefix_url}/admin/', admin.site.urls),
-    path('/', include('shortener.urls')),
+    path('', include('shortener.urls')),
 ]
 
 # Admin

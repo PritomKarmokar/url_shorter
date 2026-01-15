@@ -53,7 +53,7 @@ class UrlShortener(models.Model):
     def save(self, *args, **kwargs):
         if not self.id:
             self.id = str(ulid.new())
-        super.save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = "URL Shortener"
