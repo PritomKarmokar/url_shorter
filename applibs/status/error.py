@@ -9,3 +9,9 @@ FAILED_TO_GENERATE_SHORT_URL = {
     "lang": "en",
     "message": "Failed to generate short url."
 }
+
+INVALID_LINK_PROVIDED = {
+    "code": "INVLP_400",
+    "lang": "en",
+    "message": "Invalid Link provided."
+}

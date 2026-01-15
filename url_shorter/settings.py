@@ -34,11 +34,14 @@ DJANGO_APPS = [
 # Third party apps
 THIRD_PARTY_APPS = [
     'rest_framework',
+    'corsheaders',
+    'django_extensions',
+    'cid.apps.CidAppConfig',
 ]
 
 # Add In house Project Apps here
 PROJECT_APPS = [
-
+    'shortener',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS

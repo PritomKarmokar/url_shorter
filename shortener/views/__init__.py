@@ -1,1 +1,2 @@
+from .url_redirect import RedirectUrlAPIView
 from .url_shortener import GenerateShortUrlAPIView

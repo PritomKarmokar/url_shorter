@@ -26,6 +26,19 @@ class UrlShortenerManager(models.Manager):
             logger.error(f"Error creating new short url db object: {repr(e)}")
             return None
 
+    def fetch_short_url_by_hashed_token(
+        self,
+        hashed_token: str
+    ) -> Optional["UrlShortener"]:
+        try:
+            db_object = self.get(hashed_token=hashed_token)
+            logger.info(f"Short url DB object fetched successfully")
+            return db_object
+        except Exception as e:
+            logger.error(f"Error fetching short url db object by hashed token: {repr(e)}")
+            return None
+
+
 class UrlShortener(models.Model):
     id = models.CharField(max_length=26, primary_key=True, editable=False)
     url = models.CharField(max_length=2000)
