@@ -130,7 +130,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-PROJECT_NAME = 'url_shorter'
+PROJECT_NAME = 'url-shorter'
 
 STATIC_URL = f'/{PROJECT_NAME}/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
